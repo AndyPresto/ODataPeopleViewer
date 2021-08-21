@@ -56,7 +56,7 @@ namespace ODataPeopleViewer.Menu
 
         private async Task ShowPeopleOnScreen()
         {
-            var peopleResponse = await _oData.GetPeople(new GetPeopleRequest());
+            var peopleResponse = await _oData.GetPeople();
             _menuPrinting.PrintPersonsToConsole(new Model.PrintPersonsToConsoleRequest
             {
                 Persons = peopleResponse.People

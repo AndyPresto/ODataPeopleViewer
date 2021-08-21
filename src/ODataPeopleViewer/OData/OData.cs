@@ -11,7 +11,7 @@ namespace ODataPeopleViewer.OData
 {
     public interface IOData
     {
-        public Task<GetPeopleResponse> GetPeople(GetPeopleRequest request);
+        public Task<GetPeopleResponse> GetPeople();
     }
 
     public class OData : IOData
@@ -26,7 +26,7 @@ namespace ODataPeopleViewer.OData
             _context = new DefaultContainer(new Uri(_serviceRoot));
         }
 
-        public async Task<GetPeopleResponse> GetPeople(GetPeopleRequest request)
+        public async Task<GetPeopleResponse> GetPeople()
         {
             var response = new GetPeopleResponse();
            
