@@ -19,7 +19,9 @@ This section describes the steps that can be taken to debug and run the solution
 
     git clone https://github.com/AndyPresto/ODataPeopleViewer.git
 **2) Open src/ODataPeopleViewer.sln in Visual Studio.**
+
 **3) Restore Nuget packages**
+
 **4) Run the build from Visual Studio**
 
 ## The data
