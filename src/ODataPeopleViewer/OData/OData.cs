@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ODataPeopleViewer.OData.Model;
+using Microsoft.Extensions.Configuration;
 
 namespace ODataPeopleViewer.OData
 {
@@ -18,9 +19,10 @@ namespace ODataPeopleViewer.OData
         private readonly string _serviceRoot;
         private DefaultContainer _context;
 
-        public OData()
+        public OData(IConfiguration configuration)
         {
-            _serviceRoot = "https://services.odata.org/V4/TripPinServiceRW/";
+
+            _serviceRoot = configuration["Odata:BaseUrl"];
             _context = new DefaultContainer(new Uri(_serviceRoot));
         }
 

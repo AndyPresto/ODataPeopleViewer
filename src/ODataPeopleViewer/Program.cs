@@ -1,12 +1,25 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ODataPeopleViewer.Menu;
+using System;
 
 namespace ODataPeopleViewer
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            try
+            {
+                MainAsync(args).GetAwaiter().GetResult();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        static async System.Threading.Tasks.Task MainAsync(string[] args)
         {
             bool showMenu = true;
 
@@ -16,14 +29,11 @@ namespace ODataPeopleViewer
             // Create service provider
             var serviceProvider = services.BuildServiceProvider();
 
-            // Settings
-            var configuration = serviceProvider.GetService<IConfiguration>();
-
             var menuLogic = serviceProvider.GetService<IMenuLogic>();
 
             while (showMenu)
             {
-                showMenu = menuLogic.ShowMainMenu();
+                showMenu = await menuLogic.ShowMainMenu();
             }
         }
     }
