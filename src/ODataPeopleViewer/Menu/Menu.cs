@@ -41,7 +41,7 @@ namespace ODataPeopleViewer.Menu
 
              await ShowPeopleOnScreen();
 
-            Console.WriteLine("Choose an option:");
+            Console.WriteLine("Available options:");
             Console.WriteLine("x) Exit");
             Console.WriteLine("\r\nSelect an option: ");
 
