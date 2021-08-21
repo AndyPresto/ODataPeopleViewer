@@ -15,20 +15,20 @@ namespace ODataPeopleViewer.Menu
 
     public class MenuPrintingService : IMenuPrintingService
     {
-        private readonly int _tableWidth = 73;
+        private readonly int _tableWidth = 90;
 
         public void PrintPersonsToConsole(PrintPersonsToConsoleRequest request)
         {
             if (request == null || request.Persons == null || request.Persons.Count == 0)
                 return;
 
-            PrintRow("Username", "First Name", "Last Name");
-            PrintRow("", "", "");
-            PrintRow("", "", "");
+            PrintRow("Username", "First Name", "Last Name", "Email");
+            PrintRow("", "", "", "");
+            PrintRow("", "", "", "");
 
             foreach (var person in request.Persons)
             {
-                PrintRow(person.UserName, person.FirstName, person.LastName);
+                PrintRow(person.UserName, person.FirstName, person.LastName, person.Emails?.FirstOrDefault() ?? "");
             }
         }
 
