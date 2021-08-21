@@ -2,6 +2,8 @@
 # ODataPeopleViewer
 A C# console application for viewing records of people returned by the OData example API.
 
+![OData people viewer](img/screenshot-1.PNG?raw=true "OData people viewer")
+
 ## Features
 1. **Listing**: Explore lists of people, and view supplemental information about a specific person.
 
