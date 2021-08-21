@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ODataPeopleViewer.Menu;
-using System;
 
 namespace ODataPeopleViewer
 {
@@ -21,6 +20,7 @@ namespace ODataPeopleViewer
             var configuration = serviceProvider.GetService<IConfiguration>();
 
             var menuLogic = serviceProvider.GetService<IMenuLogic>();
+
             while (showMenu)
             {
                 showMenu = menuLogic.ShowMainMenu();
