@@ -20,7 +20,6 @@ namespace ODataPeopleViewer.Menu
     {
         private readonly IOData _oData;
         private readonly IMenuPrintingService _menuPrinting;
-        private int _page = 0;
 
         public MenuLogic(IOData oData, IMenuPrintingService menuPrinting)
         {
@@ -35,8 +34,6 @@ namespace ODataPeopleViewer.Menu
              await ShowPeopleOnScreen();
 
             Console.WriteLine("Choose an option:");
-            Console.WriteLine("+) Next page");
-            Console.WriteLine("-) Previous page");
             Console.WriteLine("x) Exit");
             Console.WriteLine("\r\nSelect an option: ");
 
