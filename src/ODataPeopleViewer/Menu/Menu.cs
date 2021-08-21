@@ -19,34 +19,44 @@ namespace ODataPeopleViewer.Menu
     public class MenuLogic : IMenuLogic
     {
         private readonly IOData _oData;
+        private readonly IMenuPrintingService _menuPrinting;
         private int _page = 0;
 
-        public MenuLogic(IOData oData)
+        public MenuLogic(IOData oData, IMenuPrintingService menuPrinting)
         {
             _oData = oData;
+            _menuPrinting = menuPrinting;
         }
 
         public async Task<bool> ShowMainMenu()
         {
             Console.Clear();
+
+             await ShowPeopleOnScreen();
+
             Console.WriteLine("Choose an option:");
             Console.WriteLine("+) Next page");
             Console.WriteLine("-) Previous page");
             Console.WriteLine("x) Exit");
             Console.WriteLine("\r\nSelect an option: ");
-            var people = await _oData.GetPeople(new GetPeopleRequest());
 
             switch (Console.ReadLine())
             {
-                case "+":
-                    return true;
-                case "-":
-                    return true;
                 case "x":
                     return false;
                 default:
                     return true;
             }
+        }
+
+        private async Task ShowPeopleOnScreen()
+        {
+            var peopleResponse = await _oData.GetPeople(new GetPeopleRequest());
+            _menuPrinting.PrintPersonsToConsole(new Model.PrintPersonsToConsoleRequest
+            {
+                Persons = peopleResponse.People
+            });
+            Console.WriteLine("\r\n");
         }
     }
 }

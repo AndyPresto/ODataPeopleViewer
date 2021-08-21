@@ -34,6 +34,7 @@ namespace ODataPeopleViewer.Services
             #region Main DI services
             services.AddSingleton<IMenuLogic, MenuLogic>();
             services.AddSingleton<IOData, OData.OData>();
+            services.AddSingleton<IMenuPrintingService, MenuPrintingService>();
             #endregion
 
             return services;
