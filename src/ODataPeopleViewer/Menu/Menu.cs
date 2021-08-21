@@ -27,9 +27,17 @@ namespace ODataPeopleViewer.Menu
             _menuPrinting = menuPrinting;
         }
 
+        private void ShowWelcomeMessage()
+        {
+            Console.WriteLine("Welcome to the ODataPeopleViewer!");
+            Console.WriteLine("These are the people that we have found:");
+            Console.WriteLine("\r\n");
+        }
+
         public async Task<bool> ShowMainMenu()
         {
             Console.Clear();
+            ShowWelcomeMessage();
 
              await ShowPeopleOnScreen();
 
