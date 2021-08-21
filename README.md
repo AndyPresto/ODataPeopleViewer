@@ -2,6 +2,8 @@
 # ODataPeopleViewer
 A C# console application for viewing records of people returned by the OData example API.
 
+![OData people viewer](img/screenshot-1.PNG?raw=true "OData people viewer")
+
 ## Features
 1. **Listing**: Explore lists of people, and view supplemental information about a specific person.
 
@@ -17,7 +19,9 @@ This section describes the steps that can be taken to debug and run the solution
 
     git clone https://github.com/AndyPresto/ODataPeopleViewer.git
 **2) Open src/ODataPeopleViewer.sln in Visual Studio.**
+
 **3) Restore Nuget packages**
+
 **4) Run the build from Visual Studio**
 
 ## The data
