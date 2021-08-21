@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ODataPeopleViewer.Menu;
 using System;
 
 namespace ODataPeopleViewer
@@ -8,6 +9,8 @@ namespace ODataPeopleViewer
     {
         static void Main(string[] args)
         {
+            bool showMenu = true;
+
             // Create service collection
             var services = Services.ApplicationServices.ConfigureServices();
 
@@ -16,6 +19,12 @@ namespace ODataPeopleViewer
 
             // Settings
             var configuration = serviceProvider.GetService<IConfiguration>();
+
+            var menuLogic = serviceProvider.GetService<IMenuLogic>();
+            while (showMenu)
+            {
+                showMenu = menuLogic.ShowMainMenu();
+            }
         }
     }
 }

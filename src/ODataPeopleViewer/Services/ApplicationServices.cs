@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ODataPeopleViewer.Menu;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,7 +31,7 @@ namespace ODataPeopleViewer.Services
             #endregion
 
             #region Main DI services
-
+            services.AddSingleton<IMenuLogic, MenuLogic>();
             #endregion
 
             return services;
