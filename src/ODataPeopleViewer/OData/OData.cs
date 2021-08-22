@@ -21,7 +21,6 @@ namespace ODataPeopleViewer.OData
 
         public OData(IConfiguration configuration)
         {
-
             _serviceRoot = configuration["Odata:BaseUrl"];
             _context = new DefaultContainer(new Uri(_serviceRoot));
         }

@@ -2,8 +2,9 @@ using NUnit.Framework;
 
 namespace ODataPeopleViewer.Tests
 {
-    public class Tests
+    public class StartupValidationServiceTests
     {
+
         [SetUp]
         public void Setup()
         {

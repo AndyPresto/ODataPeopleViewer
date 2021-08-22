@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ODataPeopleViewer.Menu;
+using ODataPeopleViewer.Services;
 using System;
 
 namespace ODataPeopleViewer
@@ -29,11 +30,21 @@ namespace ODataPeopleViewer
             // Create service provider
             var serviceProvider = services.BuildServiceProvider();
 
-            var menuLogic = serviceProvider.GetService<IMenuLogic>();
+            var startupValidations = serviceProvider.GetService<IStartupValidationService>();
+            var validationResponse = startupValidations.PerformStartupValidations();
 
-            while (showMenu)
+            if (validationResponse.ValidationsPassed)
             {
-                showMenu = await menuLogic.ShowMainMenu();
+                var menuLogic = serviceProvider.GetService<IMenuLogic>();
+                while (showMenu)
+                {
+                    showMenu = await menuLogic.ShowMainMenu();
+                }
+            }
+            else
+            {
+                Console.WriteLine(validationResponse.ErrorMessage);
+                Console.ReadLine();
             }
         }
     }
